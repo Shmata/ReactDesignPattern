@@ -18,3 +18,5 @@ Let's call this component <b>'RegularList'</b>. It is responsible for iterating 
 
 - The last part demonstrates how to implement dynamic modals in the project.
 
+# Container Components (Container branch)
+- To dynamically parse the return value of an API.
