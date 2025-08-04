@@ -20,3 +20,6 @@ Let's call this component <b>'RegularList'</b>. It is responsible for iterating 
 
 # Container Components (Container branch)
 - To dynamically parse the return value of an API.
+
+# Controlled and Uncontrolled Components (ControlledUncontrolled branch)
+- An effective approach to implementing both controlled and uncontrolled components.
