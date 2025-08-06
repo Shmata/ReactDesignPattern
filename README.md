@@ -27,3 +27,5 @@ Let's call this component <b>'RegularList'</b>. It is responsible for iterating 
 # Higher Order Components (HOC branch)
 - An efficient patter to implementing higher order components
   
+# Custom Hook Components (HOC branch)
+- To implement custom hooks
