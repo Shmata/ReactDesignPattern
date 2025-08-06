@@ -1,45 +1,13 @@
-import axios from 'axios'
-import { CurrentUserLoader } from "./CurrentUserLoader"
-import { DataLoader } from "./DataLoader"
-import { ResourceLoader } from "./ResourceLoader"
+import { printProps } from "./printProps"
 import { UserInfo } from "./UserInfo"
-import { UserLoader } from "./UserLoader"
+import { withUser } from "./withUser";
 
-const getServerData = url => async () => {
-  const response = await axios.get(url);
-  return response.data
-}
-
-const getTestData = () => {
-  return {
-    id: '12345',
-    name: 'Blah blah',
-    age: 54,
-    hairColor: 'brown',
-    hobbies: ['swimming', 'bicycling', 'video games'],
-  }
-}
+const UserInfoWrapped = withUser(printProps(UserInfo), '123');
 
 function App() {
   return (
-    <>
-    <DataLoader
-      getDataFn={getTestData}
-      resourceName="user"
-    >
-      <UserInfo />
-    </DataLoader>
-    <ResourceLoader
-      resourceUrl="/api/users/345"
-      resourceName="user"
-    >
-      <UserInfo />
-    </ResourceLoader>
-    <UserLoader userId="345">
-      <UserInfo />
-    </UserLoader>
-    </>
-  )
+    <UserInfoWrapped />
+  );
 }
 
 export default App
