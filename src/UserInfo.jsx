@@ -1,4 +1,29 @@
-export const UserInfo = ({ user }) => {
+import { useCallback } from "react";
+import { useDataSource } from "./useDataSource";
+import { useResource } from "./useResource";
+import { useUser } from "./useUser";
+
+const loadUser = async userId => {
+	console.log('Loading user from server...')
+	const loadedUser = {
+		name: 'John Doe',
+		age: 54,
+		hairColor: 'brown',
+		hobbies: ['swimming', 'bicycling', 'video games'],
+	};
+
+	return loadedUser;
+}
+
+export const UserInfo = ({ userId }) => {
+	// const { isLoading, user } = useUser(userId);
+	const loadUserWithId = useCallback(() => loadUser(userId), [userId]);
+	const { isLoading, data: user } = useDataSource(loadUserWithId);
+
+	if (isLoading) {
+		return <p>Loading...</p>
+	}
+
 	const { name, age, hairColor, hobbies } = user;
 
 	return (
@@ -12,4 +37,4 @@ export const UserInfo = ({ user }) => {
 		</ul>
 		</>
 	);
-}
+};
