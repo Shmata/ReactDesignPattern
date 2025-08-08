@@ -29,3 +29,6 @@ Let's call this component <b>'RegularList'</b>. It is responsible for iterating 
   
 # Custom Hook Components (HOC branch)
 - To implement custom hooks
+
+# Functional Components (Functional branch)
+- Functional programming in React
